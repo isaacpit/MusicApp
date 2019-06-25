@@ -58,12 +58,16 @@ import React, { Component } from 'react';
  
 import { StyleSheet, View, Button, Alert} from 'react-native';
 //import all the components we are going to use. 
+
+var DB_URL = "http://54.211.88.171";
+var DB_PORT = "3000";
+var DB_CONN_STR = DB_URL + ":" + DB_PORT;
  
 export default class App extends Component {
  
   getDataUsingGet(){
     //GET request 
-    fetch('http://54.211.88.171:3000/users', {
+    fetch(DB_CONN_STR + '/users', {
         method: 'GET'
         //Request Type 
     })
@@ -84,24 +88,25 @@ export default class App extends Component {
  
   getDataUsingPost(){
     //POST json 
-    var dataToSend = {title: 'foo', body: 'bar', userId: 1};
-    //making data to send on server
-    var formBody = [];
-    for (var key in dataToSend) {
-      var encodedKey = encodeURIComponent(key);
-      var encodedValue = encodeURIComponent(dataToSend[key]);
-      formBody.push(encodedKey + "=" + encodedValue);
-    }
-    formBody = formBody.join("&");
+    // var dataToSend = {title: 'foo', body: 'bar', userId: 1};
+    // //making data to send on server
+    // var formBody = [];
+    // for (var key in dataToSend) {
+    //   var encodedKey = encodeURIComponent(key);
+    //   var encodedValue = encodeURIComponent(dataToSend[key]);
+    //   formBody.push(encodedKey + "=" + encodedValue);
+    // }
+    // formBody = formBody.join("&");
     //POST request 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    // fetch(DB_CONN_STR + '/post_test', {
+    fetch("http://54.211.88.171:3000/post_test", {
       method: "POST",//Request Type 
-      body: formBody,//post body 
+      body: JSON.stringify({"testkey": "testvalue"}),//post body 
       headers: {//Header Defination 
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        'Content-Type': 'application/json'
       },
     })
-    .then((response) => response.json())
+    .then((response) => response.text())
     //If response is in json then in success
     .then((responseJson) => {
         alert(JSON.stringify(responseJson));
