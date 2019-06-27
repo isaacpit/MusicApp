@@ -75,12 +75,21 @@ import styles from "./styles";
 // import { StyleSheet, View, Button, Alert} from 'react-native';
 //import all the components we are going to use. 
 
-var DB_URL = "http://54.211.88.171";
+var DB_URL = "http://34.229.242.167";
 var DB_PORT = "3000";
 var DB_CONN_STR = DB_URL + ":" + DB_PORT;
  
 export default class App extends Component {
- 
+  constructor(props) {
+    // Required step: always call the parent class' constructor
+    super(props);
+
+    // Set the state directly. Use props if necessary.
+    this.state = {
+      users: []
+    }
+  }
+
   getDataUsingGet(){
     //GET request 
     fetch(DB_CONN_STR + '/users', {
@@ -89,11 +98,14 @@ export default class App extends Component {
     })
     .then((response) => response.json())
     //If response is in json then in success
-    .then((responseJson) => {
-        //Success 
-        alert(JSON.stringify(responseJson));
-        console.log(responseJson);
-    })
+    // .then((responseJson) => {
+    //     //Success 
+    //     alert(JSON.stringify(responseJson));
+    //     console.log(responseJson);
+    // })
+    .then((responseJson) => (this.setState({users: responseJson}),
+    alert(JSON.stringify(responseJson))))
+
     //If response is not in json then in error
     .catch((error) => {
         //Error 
@@ -115,7 +127,7 @@ export default class App extends Component {
     // formBody = formBody.join("&");
     //POST request 
     // fetch(DB_CONN_STR + '/post_test', {
-    fetch("http://54.211.88.171:3000/post_test", {
+    fetch(DB_URL + ":" + DB_PORT + "/post_test", {
       method: "POST",//Request Type 
       body: JSON.stringify({"testkey": "testvalue"}),//post body 
       headers: {//Header Defination 
@@ -124,10 +136,13 @@ export default class App extends Component {
     })
     .then((response) => response.text())
     //If response is in json then in success
+    // .then((responseJson) => this.setState({users: responseJson}))
+
     .then((responseJson) => {
-        alert(JSON.stringify(responseJson));
-        console.log(responseJson);
-    })
+      alert(JSON.stringify(responseJson));
+      // this.setState({users = responseJson});
+      console.log(responseJson);
+  })
     //If response is not in json then in error
     .catch((error) => {
       alert(JSON.stringify(error));
@@ -135,8 +150,33 @@ export default class App extends Component {
     });
   }
 
+  // render() {
+
+
+  //   return (
+  //     <Container>
+  //       {userList}
+  //     </Container>
+  // )
+  // }
+  
+
 
   render() {
+    var userList = [];
+
+    this.state.users.forEach(function (tmpUser) {
+        userList.push(
+          // why keys? https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js
+          <Content padder key={tmpUser._id}>
+            <Button dark key={tmpUser._id}>
+              <Text key={tmpUser._id}>{tmpUser.username}</Text>
+            </Button>
+          </Content>
+          
+        );
+    }.bind(this));
+
     return (
       <Container style={styles.container}>
         <Header>
@@ -155,8 +195,11 @@ export default class App extends Component {
         <Button light style={styles.mb15}>
             <Text>Light</Text>
           </Button>
-          <Card style={styles.mb}>
-          <Content padder>
+          
+        <Card style={styles.mb}>
+        {userList}
+        <Content padder>
+          
             <Button light title='Get Data Using GET' onPress={() => this.getDataUsingGet()}>
               <Text>Get Data Using GET</Text>
             </Button>
