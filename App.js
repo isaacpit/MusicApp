@@ -134,6 +134,8 @@ export default class App extends Component {
       console.error(error);
     });
   }
+
+
   render() {
     return (
       <Container style={styles.container}>
