@@ -52,11 +52,27 @@
 // **************************************************************************
 
 
+import React, { Component } from "react";
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Button,
+  Icon,
+  Card,
+  CardItem,
+  Text,
+  Body,
+  Left,
+  Right
+} from "native-base";
+import styles from "./styles";
+
 //This is an example code to understand HTTP Requests// 
-import React, { Component } from 'react';
 //import react in our code. 
  
-import { StyleSheet, View, Button, Alert} from 'react-native';
+// import { StyleSheet, View, Button, Alert} from 'react-native';
 //import all the components we are going to use. 
 
 var DB_URL = "http://54.211.88.171";
@@ -120,6 +136,74 @@ export default class App extends Component {
   }
   render() {
     return (
+      <Container style={styles.container}>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Bordered CardItem</Title>
+          </Body>
+          <Right />
+        </Header>
+
+        <Content padder>
+        <Button light style={styles.mb15}>
+            <Text>Light</Text>
+          </Button>
+          <Card style={styles.mb}>
+          <Content padder>
+            <Button light title='Get Data Using GET' onPress={() => this.getDataUsingGet()}>
+              <Text>Get Data Using GET</Text>
+            </Button>
+          </Content>
+          <Content padder>
+            <Button light title='Get Data Using POST' onPress={() => this.getDataUsingPost()}>
+              <Text>Get Data Using POST</Text>
+            </Button>
+          </Content>
+
+            <CardItem header bordered>
+              <Text>NativeBase</Text>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+                <Text>
+                  NativeBase is a free and open source framework that enable
+                  developers to build high-quality mobile apps using React
+                  Native iOS and Android apps with a fusion of ES6.
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+                <Text>
+                  NativeBase builds a layer on top of React Native that provides
+                  you with basic set of components for mobile application
+                  development.
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+                <Text>
+                  Get on the mobile fast track with NativeBase, the
+                  fastest-growing platform and tool set for iOS and Android
+                  development.
+                </Text>
+              </Body>
+            </CardItem>
+            <CardItem footer bordered>
+              <Text>GeekyAnts</Text>
+            </CardItem>
+          </Card>
+        </Content>
+      </Container>
+    );
+
+    return (
       <View style={styles.MainContainer}>
         {/*Running GET Request*/}
         <Button title='Get Data Using GET' onPress={this.getDataUsingGet}/>
@@ -129,10 +213,10 @@ export default class App extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  MainContainer :{
-    justifyContent: 'center',
-    flex:1,
-    margin: 10
-  }
-});
+// const styles = StyleSheet.create({
+//   MainContainer :{
+//     justifyContent: 'center',
+//     flex:1,
+//     margin: 10
+//   }
+// });
