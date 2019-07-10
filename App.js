@@ -150,6 +150,13 @@ export default class App extends Component {
     });
   }
 
+  clearData() {
+    this.setState({users: []}, function () {
+      console.log(this.state.users)
+    });
+    
+  }
+
   // render() {
 
 
@@ -170,8 +177,10 @@ export default class App extends Component {
           // why keys? https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js
           <Content padder key={tmpUser._id}>
             <Button dark key={tmpUser._id}>
-              <Text key={tmpUser._id}>{tmpUser.username}</Text>
+              <Text key={tmpUser._id + "_title"}>{tmpUser.username + " likes : "}</Text>
+              <Text key={tmpUser._id + "_description"} >{tmpUser.artists}</Text>
             </Button>
+            
           </Content>
           
         );
@@ -192,12 +201,10 @@ export default class App extends Component {
         </Header>
 
         <Content padder>
-        <Button light style={styles.mb15}>
-            <Text>Light</Text>
-          </Button>
-          
         <Card style={styles.mb}>
-        {userList}
+        {userList.length > 0 && 
+          userList
+        }
         <Content padder>
           
             <Button light title='Get Data Using GET' onPress={() => this.getDataUsingGet()}>
@@ -208,6 +215,12 @@ export default class App extends Component {
             <Button light title='Get Data Using POST' onPress={() => this.getDataUsingPost()}>
               <Text>Get Data Using POST</Text>
             </Button>
+          </Content>
+          <Content padder>
+            <Button light title="Clear" onPress={() => this.clearData()}>
+              <Text>Clear</Text>
+            </Button>
+            
           </Content>
 
             <CardItem header bordered>
