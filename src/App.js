@@ -7,7 +7,8 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer } from 
 import SideBar from "./screens/sidebar";
 import Home from "./screens/home";
 
-import SimpleQuery from "./screens/simple_query/";
+import MusicApp from "./screens/music_app/";
+import SimpleQuery from "./screens/music_app/";
 
 
 const Drawer = createDrawerNavigator(
@@ -26,7 +27,9 @@ const Drawer = createDrawerNavigator(
 const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },
+    MusicApp: { screen: MusicApp },
     SimpleQuery: { screen: SimpleQuery }
+    
   },
   {
     initialRouteName: "Drawer",
