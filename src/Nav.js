@@ -6,14 +6,16 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer } from 
 
 import SideBar from "./screens/sidebar";
 import Home from "./screens/home";
-
 import MusicApp from "./screens/music_app/";
-import SimpleQuery from "./screens/music_app/";
+
+import SimpleQuery from "./screens/music_app/simple_query";
+
 
 
 const Drawer = createDrawerNavigator(
   {
-    Home: {screen: Home} 
+    Home: {screen: Home},
+    MusicApp: {screen: MusicApp}
   },
   {
     initialRouteName: "Home",
@@ -27,7 +29,6 @@ const Drawer = createDrawerNavigator(
 const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },
-    MusicApp: { screen: MusicApp },
     SimpleQuery: { screen: SimpleQuery }
     
   },
@@ -39,7 +40,7 @@ const AppNavigator = createStackNavigator(
 
 const AppContainer = createAppContainer(AppNavigator);
 
-export default () =>
+export default Nav =>
   <Root>
     <AppContainer />
   </Root>;
