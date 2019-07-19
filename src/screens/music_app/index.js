@@ -19,6 +19,10 @@ const datas = [
   {
     route: "SimpleQuery",
     text: "Simple Query"
+  }, 
+  {
+    route: "UI_1",
+    text: "UI_1"
   }
 ];
 

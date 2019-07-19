@@ -5,6 +5,12 @@ const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 
 export default {
+  mainIcon: {
+    textAlign: "center",
+    color: "#2244dd",
+    fontSize: 100,
+    paddingTop: 20
+  },
   drawerCover: {
     alignSelf: "stretch",
     height: deviceHeight / 3.5,

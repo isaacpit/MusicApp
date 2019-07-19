@@ -6,9 +6,10 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer } from 
 
 import SideBar from "./screens/sidebar";
 import Home from "./screens/home";
-import MusicApp from "./screens/music_app/";
+import MusicApp from "./screens/music_app";
 
 import SimpleQuery from "./screens/music_app/simple_query";
+import UI_1 from "./screens/music_app/ui_1";
 
 
 
@@ -29,7 +30,9 @@ const Drawer = createDrawerNavigator(
 const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },
-    SimpleQuery: { screen: SimpleQuery }
+    SimpleQuery: { screen: SimpleQuery },
+    UI_1: { screen: UI_1 }
+
     
   },
   {

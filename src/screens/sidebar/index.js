@@ -13,8 +13,8 @@ import {
 } from "native-base";
 import styles from "./style";
 
-const drawerCover = require("../../../assets/drawer-cover.png");
-const drawerImage = require("../../../assets/logo-kitchen-sink.png");
+// const drawerCover = require("../../../assets/drawer-cover.png");
+// const drawerImage = require("../../../assets/logo-kitchen-sink.png");
 const datas = [
   {
     name: "Music App",
@@ -40,8 +40,9 @@ class SideBar extends Component {
           bounces={false}
           style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
         >
-          <Image source={drawerCover} style={styles.drawerCover} />
-          <Image square style={styles.drawerImage} source={drawerImage} />
+          <Icon name="musical-notes" style={styles.mainIcon}>
+
+          </Icon>
 
           <List
             dataArray={datas}
