@@ -11,7 +11,7 @@ import {
   Right,
   Badge
 } from "native-base";
-import styles from "./style";
+import styles from "./styles";
 
 // const drawerCover = require("../../../assets/drawer-cover.png");
 // const drawerImage = require("../../../assets/logo-kitchen-sink.png");
@@ -20,6 +20,12 @@ const datas = [
     name: "Music App",
     route: "MusicApp",
     icon: "phone-portrait",
+    bg: "#C5F442"
+  }, 
+  {
+    name: "Restaurant Roulette",
+    route: "RestaurantRoulette",
+    icon: "pizza",
     bg: "#C5F442"
   }
 ];

@@ -19,6 +19,11 @@ export default (variables /*: * */ = variable) => {
       shadowOpacity: null,
       elevation: null
     },
+    ".noBorder": {
+      borderWidth: 0,
+      borderRadius: 0,
+      borderColor: "000"
+    },
     marginVertical: 5,
     marginHorizontal: 2,
     borderWidth: variables.borderWidth,
