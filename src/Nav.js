@@ -10,7 +10,8 @@ import MusicApp from "./screens/music_app";
 
 import SimpleQuery from "./screens/music_app/simple_query";
 import UI_1 from "./screens/music_app/ui_1";
-
+import PlainColumn2D from "./screens/music_app/plain_column_2d";
+import FusionTime from "./screens/music_app/fusion_time";
 
 
 const Drawer = createDrawerNavigator(
@@ -31,7 +32,9 @@ const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },
     SimpleQuery: { screen: SimpleQuery },
-    UI_1: { screen: UI_1 }
+    UI_1: { screen: UI_1 },
+    PlainColumn2D: { screen: PlainColumn2D },
+    FusionTime: { screen: FusionTime },
 
     
   },

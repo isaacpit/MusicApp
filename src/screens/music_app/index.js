@@ -23,7 +23,16 @@ const datas = [
   {
     route: "UI_1",
     text: "UI_1"
-  }
+  },
+  {
+    route: "PlainColumn2D",
+    text: "Plain Column 2D"
+  },
+  {
+    route: "FusionTime",
+    text: "Fusion Time"
+  },
+  
 ];
 
 class MusicApp extends Component {
