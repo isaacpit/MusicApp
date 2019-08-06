@@ -33,7 +33,8 @@ export default class PlainColumn2D extends Component {
 
   constructor(props) {
     super(props);
-    this.handleResponderGrant = this.handleResponderGrant.bind(this)
+    this.handleResponderGrant = this.handleResponderGrant.bind(this);
+    this.handleSCROLLResponderGrant = this.handleSCROLLResponderGrant.bind(this);
     this.state = {
       myText: "Press me!!!",
       type: "column2d",
