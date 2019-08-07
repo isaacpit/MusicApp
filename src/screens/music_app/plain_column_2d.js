@@ -89,7 +89,7 @@ export default class PlainColumn2D extends Component {
     this.libraryPath = Platform.select({
       // Specify fusioncharts.html file location
       android: {
-        uri: "file:///android_asset/fusioncharts.html"
+        uri: "file:///android_asset/fusioncharts.html" // FIXME
       },
       ios: require("../../../assets/fusioncharts.html")
     });

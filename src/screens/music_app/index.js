@@ -32,6 +32,18 @@ const datas = [
     route: "FusionTime",
     text: "Fusion Time"
   },
+  {
+    route: "SimpleLine",
+    text: "Simple Line"
+  },
+  {
+    route: "LineEvents",
+    text: "Line Events"
+  },
+  {
+    route: "JustLine",
+    text: "Just Line"
+  }
   
 ];
 
