@@ -23,6 +23,10 @@ const datas = [
   {
     route: "UI_1",
     text: "UI_1"
+  },
+  {
+    route: "Map1",
+    text: "Map 1"
   }
 ];
 
