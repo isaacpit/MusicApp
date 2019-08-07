@@ -23,6 +23,10 @@ const datas = [
   {
     route: "UI_1",
     text: "UI_1"
+  },
+  {
+    route: "MapAndroid1",
+    text: "Android Map 1"
   }
 ];
 
