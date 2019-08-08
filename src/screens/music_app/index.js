@@ -35,6 +35,22 @@ const datas = [
   {
     route: "MapAndroidCurrLoc",
     text: "Map Android Curr Loc"
+  },
+  {
+    route: "MapAndroidCircle",
+    text: "Map Android Circle"
+  },
+  {
+    route: "MapCircleEx1",
+    text: "Map Circle Ex 1"
+  },
+  {
+    route: "PinchEx1",
+    text: "Pinch Ex 1"
+  },
+  {
+    route: "MapPinch",
+    text: "Map Pinch"
   }
 ];
 
