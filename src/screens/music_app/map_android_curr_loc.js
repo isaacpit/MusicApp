@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import { Text,View, StyleSheet } from "react-native";
 import { Header, Left, Right, Icon, Body, Label, Title, Form, Content, Item, Button, Input} from "native-base";
+// import { getCurrentLocation } from "./app_functions";
 
 class MapAndroidCurrLoc extends Component  {
   constructor(props) {
@@ -13,6 +14,7 @@ class MapAndroidCurrLoc extends Component  {
     // this.onRegionChange = this.onRegionChange.bind(this);
 
     this.state = {
+      firstLoad: true,
       region: {
         latitude: 37.78825,
         longitude: -122.4324,
@@ -55,9 +57,8 @@ class MapAndroidCurrLoc extends Component  {
     );
   }
 
-  componentDidMount() {
-    this.getCurrentLocation();
-  }
+
+  
   
   getUserInput() {
     // console.log(this.state.userLat);
@@ -85,6 +86,10 @@ class MapAndroidCurrLoc extends Component  {
 
 
   render() {
+    // if (this.state.firstLoad) {
+    //   this.setState({firstLoad: false})
+    //   getCurrentLocation(this);
+    // }
     return (
       <View style={styles.container}>
         <Header>
@@ -122,26 +127,40 @@ class MapAndroidCurrLoc extends Component  {
           <Text> {"lon: " + this.state.region.longitude} </Text>
           <Text> {"error: " + this.state.error} </Text>
           <Content>
-          <Form>
-            <Item fixedLabel>
-              <Label>Latitude</Label>
-              <Input onChangeText={(userLat) => this.setState({userLat})}/>
-            </Item>
-            <Item fixedLabel last>
-              <Label>Longitude</Label>
-              <Input onChangeText={(userLong) => this.setState({userLong})}/>
-            </Item>
-            <Button block onPress={this.getUserInput}>
-              <Text>
-                Go to inputted location 
-              </Text>
-              
-            </Button>
-          </Form>
         </Content>
           <Button block onPress={this.getCurrentLocation}>
             <Text>
               Load current location
+            </Text>
+          </Button>
+          
+          <Button block onPress={() =>
+            this.props.navigation.navigate('ListHandoff', {
+              data: [ {
+                businessName: "business1",
+                businessDesc: "desc1",
+                businessDeal: "deal1",
+                distance: 5,
+                duration: "0h 03m"
+              },
+              {
+                businessName: "business2",
+                businessDesc: "desc2",
+                businessDeal: "deal2",
+                distance: 10,
+                duration: "0h 04m"
+              },
+              {
+                businessName: "business3",
+                businessDesc: "desc3",
+                businessDeal: "deal3",
+                distance: 10,
+                duration: "0h 05m"
+              },
+              ],
+            })}>
+            <Text>
+              View list
             </Text>
           </Button>
           

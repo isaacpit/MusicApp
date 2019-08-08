@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import { Text,View, StyleSheet } from "react-native";
 import { Header, Left, Right, Icon, Body, Label, Title, Form, Content, Item, Button, Input} from "native-base";
+// import { getCurrentLocation } from "./app_functions";
 
 class MapAndroid1 extends Component  {
   constructor(props) {
@@ -13,6 +14,7 @@ class MapAndroid1 extends Component  {
     // this.onRegionChange = this.onRegionChange.bind(this);
 
     this.state = {
+      firstLoad: true,
       region: {
         latitude: 37.78825,
         longitude: -122.4324,
@@ -46,6 +48,8 @@ class MapAndroid1 extends Component  {
   //   };
   // }
 
+
+
   getCurrentLocation() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -65,6 +69,10 @@ class MapAndroid1 extends Component  {
       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
     );
   }
+
+  // componentDidMount() {
+  //   getCurrentLocation(this);
+  // }
   
   getUserInput() {
     // console.log(this.state.userLat);
@@ -92,6 +100,7 @@ class MapAndroid1 extends Component  {
 
 
   render() {
+
     return (
       <View style={styles.container}>
         <Header>
@@ -147,6 +156,7 @@ class MapAndroid1 extends Component  {
           </Form>
         </Content>
           <Button block onPress={this.getCurrentLocation}>
+          {/* <Button> */}
             <Text>
               Load current location
             </Text>
