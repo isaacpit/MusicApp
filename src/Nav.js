@@ -11,7 +11,7 @@ import MusicApp from "./screens/music_app";
 import SimpleQuery from "./screens/music_app/simple_query";
 import UI_1 from "./screens/music_app/ui_1";
 import MapAndroid1 from "./screens/music_app/map_android_1";
-
+import WelcomeScreen from "./screens/music_app/WelcomeScreen";
 
 
 const Drawer = createDrawerNavigator(
@@ -33,9 +33,8 @@ const AppNavigator = createStackNavigator(
     Drawer: { screen: Drawer },
     SimpleQuery: { screen: SimpleQuery },
     UI_1: { screen: UI_1 },
-    MapAndroid1: { screen: MapAndroid1 }
-
-    
+    MapAndroid1: { screen: MapAndroid1 },
+    WelcomeScreen: { screen: WelcomeScreen },
   },
   {
     initialRouteName: "Drawer",
