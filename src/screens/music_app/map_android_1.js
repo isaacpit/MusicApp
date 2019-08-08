@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
-import { View, StyleSheet } from "react-native";
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import { Text,View, StyleSheet } from "react-native";
+import { Header, Left, Right, Icon, Body, Label, Title, Form, Content, Item, Button, Input} from "native-base";
+
+
 
 
 class MapAndroid1 extends Component  {
@@ -8,27 +11,156 @@ class MapAndroid1 extends Component  {
     // Required step: always call the parent class' constructor
     super(props);
 
-    // Set the state directly. Use props if necessary.
-    this.state = {
+    this.getCurrentLocation = this.getCurrentLocation.bind(this);
+    this.getUserInput = this.getUserInput.bind(this);
+    // this.onRegionChange = this.onRegionChange.bind(this);
 
+    this.state = {
+      region: {
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      },
+      error: null,
+      markers: [
+        {
+          latlng: 
+          {
+            latitude:  37.78825,
+            longitude: -122.4324
+          }, 
+          title: "title",
+          description: "description"
+        }
+      ]
     }
+
   }
+
+  // getInitialState() {
+  //   return {
+  //     region: {
+  //       latitude: 40.78825,
+  //       longitude: -180.4324,
+  //       latitudeDelta: 0.0922,
+  //       longitudeDelta: 0.0421,
+  //     },
+  //   };
+  // }
+
+  getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log("wokeeey");
+        console.log(position);
+        this.setState({
+          region: { 
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          },
+          error: null,
+        });
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
+    );
+  }
+  
+  getUserInput() {
+    // console.log(this.state.userLat);
+    // console.log(this.state.userLong);
+    var nLat = parseFloat(this.state.userLat);
+    var nLon = parseFloat(this.state.userLong);
+    // console.log("nLat: " + nLat);
+    // console.log("nLong: " + nLon);
+    if (isNaN(nLat) || isNaN(nLon)) {
+      var err_msg = "Latitude and Longitude must be integers"
+      console.log(err_msg);
+      alert(err_msg); 
+      return;
+    }
+
+    this.setState({
+      region: {
+        latitude: nLat,
+        longitude: nLon,
+        latitudeDelta: this.state.region.latitudeDelta,
+        longitudeDelta: this.state.region.longitudeDelta
+      }
+    })
+  }
+
+  // onRegionChange(region) { 
+  //   // this.setState({ region });
+  // }
 
   render() {
     return (
       <View style={styles.container}>
-      <MapView
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        }}
-      >
-      </MapView>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Map View</Title>
+          </Body>
+          <Right />
+        </Header>
+        <View style={styles.topContainer}>
+          <MapView
+            provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+            style={styles.map}
+            region={this.state.region}
+            // onRegionChange={this.onRegionChange}
+
+          >
+            {this.state.markers.map(marker => (
+              <Marker
+                coordinate={marker.latlng}
+                title={marker.title}
+                description={marker.description}
+              />
+            ))}
+          </MapView>
+        </View>
+        
+        <View style={styles.bottomContainer}>
+          <Text> {"lat: " + this.state.region.latitude} </Text>
+          <Text> {"lon: " + this.state.region.longitude} </Text>
+          <Text> {"error: " + this.state.error} </Text>
+          <Content>
+          <Form>
+            <Item fixedLabel>
+              <Label>Latitude</Label>
+              <Input onChangeText={(userLat) => this.setState({userLat})}/>
+            </Item>
+            <Item fixedLabel last>
+              <Label>Longitude</Label>
+              <Input onChangeText={(userLong) => this.setState({userLong})}/>
+            </Item>
+            <Button block onPress={this.getUserInput}>
+              <Text>
+                Go to inputted location 
+              </Text>
+              
+            </Button>
+          </Form>
+        </Content>
+          <Button block onPress={this.getCurrentLocation}>
+            <Text>
+              Load current location
+            </Text>
+          </Button>
+          
+        </View>
+      
       </View>
+
     )
   }
   
@@ -37,14 +169,27 @@ class MapAndroid1 extends Component  {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: 400,
-    width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+
+    justifyContent: 'space-evenly',
+    // alignItems: 'stretch',
+    // flex: 1,
   },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
+  topContainer: {
+    height: 400,
+    width: "100%",
+    flex: 1,
+    alignItems: "flex-start",
+  },
+  bottomContainer: {
+    padding: 10,
+    flex: 1,
+    // alignItems: "flex-end",
+  }
+  
+
  });
 
 
