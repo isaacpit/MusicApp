@@ -56,6 +56,10 @@ const datas = [
     route: "MapAndroid1",
     text: "Android Map 1"
   },
+  {
+    route: "WelcomeScreen",
+    text: "Start"
+  },
 ];
 
 class MusicApp extends Component {
