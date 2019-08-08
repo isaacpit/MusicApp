@@ -3,7 +3,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove 
 import { Text,View, StyleSheet } from "react-native";
 import { Header, Left, Right, Icon, Body, Label, Title, Form, Content, Item, Button, Input} from "native-base";
 
-class MapAndroid1 extends Component  {
+class MapAndroidCurrLoc extends Component  {
   constructor(props) {
     // Required step: always call the parent class' constructor
     super(props);
@@ -35,17 +35,6 @@ class MapAndroid1 extends Component  {
 
   }
 
-  // getInitialState() {
-  //   return {
-  //     region: {
-  //       latitude: 40.78825,
-  //       longitude: -180.4324,
-  //       latitudeDelta: 0.0922,
-  //       longitudeDelta: 0.0421,
-  //     },
-  //   };
-  // }
-
   getCurrentLocation() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -64,6 +53,10 @@ class MapAndroid1 extends Component  {
       (error) => this.setState({ error: error.message }),
       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
     );
+  }
+
+  componentDidMount() {
+    this.getCurrentLocation();
   }
   
   getUserInput() {
@@ -188,4 +181,4 @@ const styles = StyleSheet.create({
  });
 
 
-export default MapAndroid1;
+export default MapAndroidCurrLoc;

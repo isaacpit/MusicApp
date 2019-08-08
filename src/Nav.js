@@ -11,6 +11,8 @@ import MusicApp from "./screens/music_app";
 import SimpleQuery from "./screens/music_app/simple_query";
 import UI_1 from "./screens/music_app/ui_1";
 import MapAndroid1 from "./screens/music_app/map_android_1";
+import ListHandoff from "./screens/music_app/list_handoff";
+import MapAndroidCurrLoc from "./screens/music_app/map_android_curr_loc";
 
 
 
@@ -33,7 +35,9 @@ const AppNavigator = createStackNavigator(
     Drawer: { screen: Drawer },
     SimpleQuery: { screen: SimpleQuery },
     UI_1: { screen: UI_1 },
-    MapAndroid1: { screen: MapAndroid1 }
+    MapAndroid1: { screen: MapAndroid1 },
+    ListHandoff: { screen: ListHandoff },
+    MapAndroidCurrLoc: { screen: MapAndroidCurrLoc },
 
     
   },

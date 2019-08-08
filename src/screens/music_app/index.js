@@ -27,6 +27,14 @@ const datas = [
   {
     route: "MapAndroid1",
     text: "Android Map 1"
+  },
+  {
+    route: "ListHandoff",
+    text: "List Handoff"
+  },
+  {
+    route: "MapAndroidCurrLoc",
+    text: "Map Android Curr Loc"
   }
 ];
 
