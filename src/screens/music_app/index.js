@@ -27,6 +27,10 @@ const datas = [
   {
     route: "MapAndroid1",
     text: "Android Map 1"
+  },
+  {
+    route: "List_View",
+    text: "List_View"
   }
 ];
 
