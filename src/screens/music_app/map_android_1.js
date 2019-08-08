@@ -1,7 +1,31 @@
 import React, { Component } from "react";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Button } from "react-native";
+import List_View from "./List_View";
 
+const datasheet = [
+  {
+    businessName: "Best Buy",
+    businessDesc: "Buy the best electronics here",
+    businessDeal: "5% off",
+    distance: "0.3 miles",
+    duration: "2 minutes"
+  }, 
+  {
+    businessName: "Rest Buy",
+    businessDesc: "Buy the rest electronics here",
+    businessDeal: "300% off",
+    distance: "0.5 miles",
+    duration: "0 minutes"
+  }, 
+  {
+    businessName: "Fest Buy",
+    businessDesc: "Buy the Fest electronics here",
+    businessDeal: "10% off",
+    distance: "0.4 miles",
+    duration: "1 minutes"
+  }
+];
 
 class MapAndroid1 extends Component  {
   constructor(props) {
@@ -28,6 +52,12 @@ class MapAndroid1 extends Component  {
         }}
       >
       </MapView>
+      <Button 
+        onPress={() => this.props.navigation.navigate("List_View")}
+        title="List View"
+      >
+        List View
+      </Button>
       </View>
     )
   }
