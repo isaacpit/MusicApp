@@ -25,10 +25,6 @@ const datas = [
     text: "UI_1"
   },
   {
-    route: "MapAndroid1",
-    text: "Android Map 1"
-  },
-  {
     route: "ListHandoff",
     text: "List Handoff"
   },
@@ -51,7 +47,15 @@ const datas = [
   {
     route: "MapPinch",
     text: "Map Pinch"
-  }
+  },
+  {
+    route: "List_View",
+    text: "List_View"
+  },
+  {
+    route: "MapAndroid1",
+    text: "Android Map 1"
+  },
 ];
 
 class MusicApp extends Component {

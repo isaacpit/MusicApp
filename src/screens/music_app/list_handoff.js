@@ -8,16 +8,19 @@ export default class ListHandoff extends Component {
 
   render() {
     const { navigation } = this.props;
-    const dataList = navigation.getParam('data', [ {
-        businessName: "no business found",
-        businessDesc: "no description",
-        businessDeal: "no deals",
-        distance: 0,
-        duration: "0h 0m"
-        }
-      ]
+    // const dataList = navigation.getParam('data', [ {
+    //     businessName: "no business found",
+    //     businessDesc: "no description",
+    //     businessDeal: "no deals",
+    //     distance: 0,
+    //     duration: "0h 0m"
+    //     }
+    //   ]
 
-    );
+    // );
+
+    const dataList = navigation.getParam('data', []);
+
     
 
 

@@ -17,6 +17,7 @@ import MapAndroidCircle from "./screens/music_app/map_android_circle";
 import MapCircleEx1 from "./screens/music_app/map_circle_ex_1";
 import PinchEx1 from "./screens/music_app/pinch_ex1";
 import MapPinch from "./screens/music_app/map_pinch";
+import List_View from "./screens/music_app/List_View";
 
 
 const Drawer = createDrawerNavigator(
@@ -45,6 +46,7 @@ const AppNavigator = createStackNavigator(
     MapCircleEx1: { screen: MapCircleEx1 },
     PinchEx1: { screen: PinchEx1 },
     MapPinch: { screen: MapPinch },
+    List_View: { screen: List_View },
 
     
   },

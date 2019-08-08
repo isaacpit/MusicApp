@@ -3,6 +3,38 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'; // remove 
 import { Text,View, StyleSheet } from "react-native";
 import { Header, Left, Right, Icon, Body, Label, Title, Form, Content, Item, Button, Input} from "native-base";
 // import { getCurrentLocation } from "./app_functions";
+import List_View from "./List_View";
+
+const datasheet = [
+  {
+    businessName: "Best Buy1",
+    businessDesc: "Buy the best electronics here",
+    businessDeal: "5% off",
+    distance: "0.3 miles",
+    duration: "2 minutes"
+  }, 
+  {
+    businessName: "Rest Buy",
+    businessDesc: "Buy the rest electronics here",
+    businessDeal: "300% off",
+    distance: "0.5 miles",
+    duration: "0 minutes"
+  }, 
+  {
+    businessName: "Fest Buy",
+    businessDesc: "Buy the Fest electronics here",
+    businessDeal: "10% off",
+    distance: "0.4 miles",
+    duration: "1 minutes"
+  },
+  {
+    businessName: "Fest Buy",
+    businessDesc: "Buy the Fest electronics here",
+    businessDeal: "10% off",
+    distance: "0.4 miles",
+    duration: "1 minutes"
+  }
+];
 
 class MapAndroid1 extends Component  {
   constructor(props) {
@@ -134,9 +166,9 @@ class MapAndroid1 extends Component  {
         </View>
         
         <View style={styles.bottomContainer}>
-          <Text> {"lat: " + this.state.region.latitude} </Text>
+          {/* <Text> {"lat: " + this.state.region.latitude} </Text>
           <Text> {"lon: " + this.state.region.longitude} </Text>
-          <Text> {"error: " + this.state.error} </Text>
+          <Text> {"error: " + this.state.error} </Text> */}
           <Content>
           <Form>
             <Item fixedLabel>
@@ -147,20 +179,34 @@ class MapAndroid1 extends Component  {
               <Label>Longitude</Label>
               <Input onChangeText={(userLong) => this.setState({userLong})}/>
             </Item>
-            <Button block onPress={this.getUserInput}>
-              <Text>
-                Go to inputted location 
-              </Text>
-              
-            </Button>
+            
           </Form>
         </Content>
-          <Button block onPress={this.getCurrentLocation}>
-          {/* <Button> */}
+        <View > 
+          <Button block style={styles.button} onPress={this.getUserInput}>
             <Text>
-              Load current location
+              Go to inputted location 
             </Text>
+            
           </Button>
+          <Button block style={styles.button} onPress={this.getCurrentLocation}>
+            {/* <Button> */}
+              <Text>
+                Load current location
+              </Text>
+            </Button>
+            <Button block style={styles.button}
+              onPress={() => this.props.navigation.navigate("List_View", {
+                data: datasheet
+              })}
+              title="List View"
+            >
+              <Text>
+                List View
+              </Text>
+            </Button>
+        </View>
+          
           
         </View>
       
@@ -192,6 +238,9 @@ const styles = StyleSheet.create({
     padding: 10,
     flex: 1,
     // alignItems: "flex-end",
+  },
+  button: {
+    margin: 2
   }
   
 
