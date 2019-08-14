@@ -94,6 +94,17 @@ getCurrentLocation() {
 render() {
     return (
     <View style={styles.container}>
+      <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Map View</Title>
+          </Body>
+          <Right />
+        </Header>
       <View style={styles.topContainer}> 
         <MapView 
             style = { styles.map }

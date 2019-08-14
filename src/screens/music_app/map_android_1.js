@@ -7,31 +7,24 @@ import List_View from "./List_View";
 
 const datasheet = [
   {
-    businessName: "Best Buy1",
-    businessDesc: "Buy the best electronics here",
+    businessName: "Best Buy",
+    businessDesc: "Save 10% on all electronics with an AmEx colleague ID",
     businessDeal: "5% off",
     distance: "0.3 miles",
     duration: "2 minutes"
   }, 
   {
-    businessName: "Rest Buy",
-    businessDesc: "Buy the rest electronics here",
+    businessName: "Golfland Sunsplash",
+    businessDesc: "Save $30 on any day pass",
     businessDeal: "300% off",
-    distance: "0.5 miles",
+    distance: "0.4 miles",
     duration: "0 minutes"
   }, 
   {
-    businessName: "Fest Buy",
-    businessDesc: "Buy the Fest electronics here",
+    businessName: "LA Fitness",
+    businessDesc: "50% on enrollment fees on select memberships",
     businessDeal: "10% off",
-    distance: "0.4 miles",
-    duration: "1 minutes"
-  },
-  {
-    businessName: "Fest Buy",
-    businessDesc: "Buy the Fest electronics here",
-    businessDeal: "10% off",
-    distance: "0.4 miles",
+    distance: "0.5 miles",
     duration: "1 minutes"
   }
 ];

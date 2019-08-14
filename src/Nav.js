@@ -23,11 +23,12 @@ import WelcomeScreen from "./screens/music_app/WelcomeScreen";
 
 const Drawer = createDrawerNavigator(
   {
+    WelcomeScreen: {screen: WelcomeScreen},
     Home: {screen: Home},
     MusicApp: {screen: MusicApp}
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "WelcomeScreen",
     contentOptions: {
       activeTintColor: "#e91e63"
     },
@@ -49,7 +50,7 @@ const AppNavigator = createStackNavigator(
     MapPinch: { screen: MapPinch },
     List_View: { screen: List_View },
     WelcomeScreen: { screen: WelcomeScreen },
-    
+
   },
   {
     initialRouteName: "Drawer",

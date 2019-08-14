@@ -20,10 +20,13 @@ export default class WelcomeScreen extends Component {
               <Text style={styles.info}>Edit Profile</Text>
               <Text style={styles.description}></Text>
               
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.buttonContainer} 
+                  onPress={() => this.props.navigation.navigate("MapPinch")}>
                     <Text style={{ color: "white" }}>Current Location</Text>  
                 </TouchableOpacity>              
-              <TouchableOpacity style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.buttonContainer}
+                onPress={() => this.props.navigation.navigate("MapAndroid1")}
+              >
                 <Text style={{ color: "white" }}>Address</Text> 
               </TouchableOpacity>
             </View>
