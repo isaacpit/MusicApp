@@ -10,6 +10,7 @@ import MusicApp from "./screens/music_app";
 
 import SimpleQuery from "./screens/music_app/simple_query";
 import UI_1 from "./screens/music_app/ui_1";
+import PixHome from "./screens/music_app/pix_home"
 
 
 
@@ -31,7 +32,8 @@ const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },
     SimpleQuery: { screen: SimpleQuery },
-    UI_1: { screen: UI_1 }
+    UI_1: { screen: UI_1 },
+    PixHome: { screen: PixHome },
 
     
   },
