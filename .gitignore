@@ -36,7 +36,8 @@ local.properties
 
 # node.js
 #
-node_modules/
+# added node_modules to gitgnore to help w dependencies
+# node_modules/
 npm-debug.log
 yarn-error.log
 
