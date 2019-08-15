@@ -29,9 +29,15 @@ import {
 // import styles from "./styles";
 // import styles from "../../../styles";
 
-const data = {
-  title: "default title",
+import TextApp from "./text_app";
+import TextAppTitle from "./text_app_title";
+// import {BoxShadow} from 'react-native-shadow';
 
+
+const data = {
+  category: "category",
+  title: "default title",
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 }
 
 
@@ -39,17 +45,23 @@ export default class PixCard extends Component {
   constructor(props) {
     super(props);
 
-    
+    this.state = {
+      data
+    };
   }
 
   render() {
 
     return (
-
-      // <Container style={styles.container}>
-      <View style={Object.assign({height: 200}, styles.cnt_card)}> 
-
-      </View>
+      
+      <View style={Object.assign(styles.cnt_card)}> 
+        <Text style={styles.txt_title}>
+          {this.state.data.title}
+        </Text>
+        <Text style={styles.txt_paragraph}>
+          {this.state.data.body}
+        </Text>
+       </View>
     
     );
   }
@@ -60,7 +72,7 @@ const styles = ({
     backgroundColor: "#fff"
   },
   cnt_card: {
-    backgroundColor: "grey",
+    backgroundColor: "#eee",
     borderRadius: 10,
 
 
@@ -71,24 +83,42 @@ const styles = ({
           shadowOpacity: 20,
       },
       android: {
-          elevation: 20
+          elevation: 5
 
       },
     }),
+    // overflow: "hidden",
+    
 
     
-    // margin: 20,
-    // marginTop: 20,
-    // marginBot: 0,
-    // borderRadius: 2,
-    // borderColor: "#d5d5d5",
-    // borderWidth: 2,
-    // borderLeftWidth: 0,
-    // borderRightWidth: 0,
-    // elevation: 1,
-    // borderBottomEndRadius: 3
   },
+
+  txt_title: { 
+    
+    padding: 20,
+    paddingBottom: 0,
+    fontSize: 40,
+    fontFamily: "sans-serif-medium"
+    // color: "red"
+  },
+  txt_paragraph: {
+    padding: 20,
+    fontFamily: "sans-serif-light"
+  },
+  
   // footer: {
   //   radius: 
   // }
 });
+
+// const shadowOpt = {
+//   width:160,
+//   height:170,
+//   color:"#000",
+//   border:2,
+//   radius:3,
+//   opacity:0.2,
+//   x:0,
+//   y:3,
+//   style:{marginVertical:5}
+// }

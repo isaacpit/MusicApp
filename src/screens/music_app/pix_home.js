@@ -36,6 +36,11 @@ export default class PixHome extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      data: {
+        category: "CATEGORY",
+      }
+    }
   }
  
 
@@ -57,15 +62,22 @@ export default class PixHome extends Component {
         </Header>
 
         <Content>
-          <Image source={require("assets/images/img_640_400.png")} style={{height: 200, width: undefined, flex: 1}}> 
-
-          </Image>
-          <View style={Object.assign({height: 400}, styles.cnt_line_top_bot)} > 
+          <Image source={require("assets/images/img_640_400.png")} style={{height: 200, width: undefined, flex: 1}}/>
+          <View style={Object.assign({height: 325}, styles.cnt_line_top_bot)} > 
+            <Text style={styles.txt_category}>  
+              {this.state.data.category}
+            </Text>
             <PixCard>
 
             </PixCard>
           </View>
-          <View style={Object.assign({height: 400}, styles.cnt_line_top_bot)} > 
+            <Image source={require("assets/images/img_640_400.png")} style={{height: 200, width: undefined, flex: 1}}/>
+          <View style={Object.assign({height: 325}, styles.cnt_line_top_bot)} > 
+            <Text style={styles.txt_category}>  
+              {this.state.data.category}
+            </Text>
+            <PixCard>
+            </PixCard>
 
           </View>
 
@@ -91,9 +103,19 @@ const styles = ({
     borderWidth: 2,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     // elevation: 1,
     // borderBottomEndRadius: 3
+  },
+  txt_category: { 
+    
+    padding: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    fontSize: 20,
+    fontFamily: "sans-serif-medium",
+    fontWeight: "bold",
+    // color: "red"
   },
   // footer: {
   //   radius: 
