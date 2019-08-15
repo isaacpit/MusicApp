@@ -49,7 +49,7 @@ export default class TextAppTitle extends Component {
       
       // <Container style={styles.container}>
       <TextApp style={styles.app_text}> 
-        {this.props.children}
+        {/* {this.props.children} */}
       </TextApp>
     
     );

@@ -24,14 +24,22 @@ import {
 import {
   Platform,
   View,
-  Image
+  Image,
+  Dimensions
 } from "react-native"
 // import styles from "./styles";
 // import styles from "../../../styles";
 
 import TextApp from "./text_app";
 import TextAppTitle from "./text_app_title";
+import PixHome from "./pix_home";
+
+var {height, width} = Dimensions.get('window')
 // import {BoxShadow} from 'react-native-shadow';
+
+var adjustedWidth = width - 60;
+console.log("pix_card width: ", width);
+console.log("pix_card adj_width: ", adjustedWidth);
 
 
 const data = {
@@ -45,6 +53,8 @@ export default class PixCard extends Component {
   constructor(props) {
     super(props);
 
+    
+
     this.state = {
       data
     };
@@ -54,7 +64,7 @@ export default class PixCard extends Component {
 
     return (
       
-      <View style={Object.assign(styles.cnt_card)}> 
+      <View style={Object.assign({width: adjustedWidth}, styles.cnt_card)}> 
         <Text style={styles.txt_title}>
           {this.state.data.title}
         </Text>

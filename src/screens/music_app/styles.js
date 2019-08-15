@@ -41,6 +41,7 @@ export default {
     flexGrow: 1,
     alignSelf: "center",
     alignItems: "center"
-  }
+  },
+  
 
 };
